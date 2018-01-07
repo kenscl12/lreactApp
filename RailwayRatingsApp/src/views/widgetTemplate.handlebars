@@ -1,0 +1,15 @@
+(function() {
+	function loadScript(url) {
+		var documentScript = document.getElementsByTagName("script")[0];
+		var loadingScript = document.createElement("script");
+		 
+		loadingScript.async = false; 
+		loadingScript.src = url;
+		documentScript.parentNode.insertBefore(loadingScript, documentScript);
+	}
+
+	var assets = {{{assets}}};
+
+	loadScript(assets.vendors.js);
+	loadScript(assets.app.js);
+}());

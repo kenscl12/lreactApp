@@ -1,0 +1,8 @@
+# node_modules ignored by default
+
+# Ignore handlebars files
+*.handlebars
+
+# Ignore build files
+build/
+node_modules/

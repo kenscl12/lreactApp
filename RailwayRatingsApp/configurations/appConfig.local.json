@@ -1,0 +1,10 @@
+{
+	"app": {
+		"isHashUrl": true,
+		"apiDomain": "api-develop.ufs-online.ru",
+		"appDomain": "ufs-online.ru",
+		"assetsUrl": "https://spa-develop.ufs-online.ru/kupit-zhd-bilety/assets.json"
+	},
+	"build": {
+	}
+}

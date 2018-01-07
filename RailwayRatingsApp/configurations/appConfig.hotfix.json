@@ -1,0 +1,12 @@
+{
+	"app": {
+		"isHashUrl": false,
+		"apiDomain": "api-hotfix.ufs-online.ru",
+		"baseUrlPath": "/ratings",
+		"appDomain": "ufs-online.ru",
+		"assetsUrl": "https://spa-hotfix.ufs-online.ru/kupit-zhd-bilety/assets.json"
+	},
+	"build": {
+		"widgetBaseUrl": "https://static-hotfix.ufs-online.ru"
+	}
+}

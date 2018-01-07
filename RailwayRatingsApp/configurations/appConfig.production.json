@@ -1,0 +1,13 @@
+{
+	"app": {
+		"isHashUrl": false,
+		"apiDomain": "api.ufs-online.ru",
+		"baseUrlPath": "/ratings",
+		"appDomain": "ufs-online.ru",
+		"assetsUrl": "https://spa.ufs-online.ru/kupit-zhd-bilety/assets.json",
+		"advertDomain": "ufs-online.ru"
+	},
+	"build": {
+		"widgetBaseUrl": "https://static.ufs-online.ru"
+	}
+}
