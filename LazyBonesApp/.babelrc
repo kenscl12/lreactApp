@@ -1,0 +1,7 @@
+{
+  "plugins": ["array-includes"],
+  "presets": [
+    ["env"],
+    "react"
+  ]
+}

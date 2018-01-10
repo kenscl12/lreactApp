@@ -1,0 +1,9 @@
+{
+	"app": {
+		"isHashUrl": false,
+		"apiDomain": "localhost:64824"
+	},
+	"build": {
+		"widgetBaseUrl": "http://localhost:8080"
+	}
+}
