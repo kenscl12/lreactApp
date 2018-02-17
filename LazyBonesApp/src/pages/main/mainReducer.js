@@ -49,6 +49,17 @@ export default function (state = {}, action) {
 			return newState;
 		}
 
+		case mainActionTypes.SET_EDIT_ACTION: {
+			const newState = Object.assign({}, state);
+			newState.main = Object.assign({}, state.main);
+
+			newState.main = Object.assign({}, state.main, {
+				action: action.data
+			});
+
+			return newState;
+		}
+
 		default:
 			return state;
 	}

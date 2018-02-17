@@ -1,7 +1,7 @@
 /** Главная страница */
 interface MainPageState {
 	/** Дела */
-	things: Array<Thing>,
+	things: Array<ThingViewModel>,
 
 	/** Действие */
 	action: ActionState

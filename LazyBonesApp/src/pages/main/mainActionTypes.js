@@ -16,5 +16,7 @@ export const CLEAR_ADD_FORM = "main__clear_add_thing";
 /** Очищает форму добавления дела */
 export const SET_ACTION = "main__set_action";
 
+export const SET_THING_ACTION = "main__set_edit_action";
+
 
 

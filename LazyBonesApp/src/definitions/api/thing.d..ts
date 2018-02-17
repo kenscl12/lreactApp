@@ -1,14 +1,14 @@
 /** Дело */
 interface Thing {
 	/** Идентификатор */
-	ThingId: number,
+	thingId: number,
 
 	/** Заголовок */
-	Name: string,
+	name: string,
 
 	/** Идентификатор пользователя */
-	UserId: number,
+	userId: number,
 
 	/** Дата */
-	Date: string
+	date: string
 }

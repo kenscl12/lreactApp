@@ -16,5 +16,6 @@
 		"**/bower_components": true,
 		"**/build": true,
 		"**/babel_cache": true
-	}
+	},
+	"git.ignoreLimitWarning": true
 }

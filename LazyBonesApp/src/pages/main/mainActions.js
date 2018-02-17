@@ -2,6 +2,8 @@ import * as mainActionTypes from "./mainActionTypes";
 import apiMethodsBuilder from "../../core/api/apiMethodsBuilder";
 import * as appActions from "../../core/app/appActions";
 
+import {convertToViewModelThings} from "../../core/business/thing/thingExtension";
+
 import * as types from "../../types";
 
 /**
@@ -50,6 +52,13 @@ export function setAction(action) {
 	return {
 		type: mainActionTypes.SET_ACTION,
 		data: action
+	}
+}
+
+export function setThingAction(thingAction) {
+	return {
+		type: mainAction.SET_THING_ACTION,
+		data: thingAction
 	}
 }
 
@@ -102,7 +111,7 @@ function initializeThings() {
 
 		return api.getThings().then(things =>
 			dispatch(
-					initThings(things))
+					initThings(convertToViewModelThings(things)))
 		).catch(error =>
 			dispatch(appActions.handleError(error))
 		);
@@ -115,9 +124,8 @@ export function deleteThing(thingId) {
 		const api = dispatch(apiMethodsBuilder());
 
 		api.deleteThing(thingId).then(() => {
-			return dispatch(initializeThings()());
-		}
-		)
+			return dispatch(initializeThings());
+		});
 	};
 }
 
@@ -130,7 +138,7 @@ export function addThing(thingName) {
 			return dispatch(initializeThings());
 		});
 
-		dispatch(clearAddForm());
+		dispatch(cancelAction());
 	}
 }
 
@@ -149,12 +157,46 @@ export function startAddAction() {
 
 export function cancelAction() {
 	return (dispatch) => {
-		const canselAction = {
+		const cancelAction = {
 			type: types.actionType.NONE,
 			thing: {
 			}
-		}
+		};
 
-		dispatch(setAction(canselAction));
+		dispatch(setAction(cancelAction));
+	}
+}
+
+export function editThingAction(editId) {
+	return (dispatch) => {
+		return dispatch(setThingAction(types.thingAction.EDIT, editId));
+	}
+}
+
+export function cancelThingAction(editId) {
+	return (dispatch) => {
+		return dispatch(setThingAction(types.thingAction.NONE, editId));
+	}
+}
+
+function setThingAction(action, editId) {
+	return (dispatch, getState) => {
+		/** @type {AppState} */
+		const state = getState();
+
+		const actionThings = [];
+
+		state.main.things.forEach(thing => {
+			const actionThing = Object.assign({}, thing);
+
+			if (thing.thing.ThingId === editId) {
+				actionThing.action = action;
+			}
+
+			actionThings.push(actionThing);
+		});
+
+		dispatch(
+			initThings(actionThings));
 	}
 }

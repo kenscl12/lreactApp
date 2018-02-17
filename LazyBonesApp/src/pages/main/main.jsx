@@ -7,6 +7,8 @@ import ThingItem from "./thingsList/thingItem";
 import AddThingForm from "./thingsList/addThingForm";
 import AddThingButton from "./thingsList/AddThingButton";
 
+import {Header, ListDate} from "../../components";
+
 import {formatToAppDate} from "../../core/utils/dateExtensions";
 import * as types from "../../types";
 
@@ -15,13 +17,15 @@ import * as mainActions from "./mainActions";
 class Main extends React.Component {
 
 	renderThings() {
+		/** @type {Array<ThingViewModel>} */
 		const things = this.props.main.things;
 
 		return things.map(thing => (
 			<ThingItem
-				thing={thing} 
+				thing={thing}
+				action={this.props.main.action}
 				actions={this.props.actions}
-				key={`thingitem_${thing.ThingId}`} />
+				key={`thingitem_${thing.thing.ThingId}`} />
 		));
 	}
 
@@ -41,18 +45,13 @@ class Main extends React.Component {
 
 		return (
 			<div className="container">
-				<div className="header clearfix">
-					<div>
-						<ul className="nav nav-pills float-left">
-							<li className="nav-item"><h3 className="text-muted">Лентяй</h3></li>
-						</ul>
-					</div>
-				</div>
+				<Header>Лентяй</Header>
 
 				<div>
 					<div>
 						<table className="table">
-							<caption><h4>Сегодня {formatToAppDate(date)}</h4></caption>
+							<ListDate
+								title={`Сегодня ${formatToAppDate(date)}`} />
 							<thead>
 								<tr>
 									<th>#</th>

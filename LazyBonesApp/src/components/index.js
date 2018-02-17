@@ -10,6 +10,8 @@ import Popup from "./popup";
 import Title from "./title";
 import Preloader from "./preloader";
 import Label from "./label";
+import Header from "./header";
+import ListDate from "./listDate";
 
 export {
 	AppContext,
@@ -23,5 +25,7 @@ export {
 	Popup,
 	Title,
 	Preloader,
-	Label
+	Label,
+	Header,
+	ListDate
 };
